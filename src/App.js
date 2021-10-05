@@ -2,26 +2,25 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+//Import Components
+import Header from './components/Header';
+import CreateSmoothie from './components/CreateSmoothie';
+import CreateCustomer from './components/CreateCustomer';
+import EditSmoothie from './components/EditSmoothie';
+import EditCustomer from './components/EditCustomer';
+import SmoothieList from './components/SmoothieList';
+import CustomerList from './components/CustomerList';
 
 function App() {
-  return (
+  return (<Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <CreateCustomer />
+      <CreateSmoothie />
     </div>
-  );
+  </Router>);
 }
 
 export default App;
