@@ -40,27 +40,33 @@ const CreateSmoothie = () => {
     setSmoothieRecipe({ ...smoothieRecipe, name: e.target.value })
   };
 
+  //Check Number of Selected Checkboxes
+  const checkSelected = (category, max, newIngredient) => {
+    let selected = 0;
+
+    //Add newly selected item to category
+    category = {
+      ...category, [newIngredient]: !category[newIngredient]
+    }
+
+    //Check how many are selected
+    for (const item in category) {
+      selected += category[item];
+    }
+
+    //Set limit to amount of selected ingredients
+    return (selected <= max);
+  }
+
   //Selecting Liquids to Add to Smoothie
   const liquidCheckBox = (e) => {
 
-    //Check how many are selected
-    let selectedLiquids = 0;
-    let tempLiquids = smoothieRecipe.liquids;
-
-    tempLiquids = { ...tempLiquids, [e.target.name]: !tempLiquids[e.target.name] }
-
-    //Check how many are selected
-    for (const liquid in tempLiquids) {
-      selectedLiquids += tempLiquids[liquid]
-    }
-
-    //Set limit to amount of liquids- min 1 max 2
-    if (selectedLiquids <= 2) {
+    //Set limit to amount of selected ingredients
+    if (checkSelected(smoothieRecipe.liquids, 2, e.target.name)) {
       setSmoothieRecipe({
         ...smoothieRecipe, liquids: { ...smoothieRecipe.liquids, [e.target.name]: !smoothieRecipe.liquids[e.target.name] }
       })
     }
-
   }
 
   //Selecting Fruits to Add to Smoothie
