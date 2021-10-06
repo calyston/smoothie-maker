@@ -60,8 +60,6 @@ const CreateSmoothie = () => {
 
   //Selecting Liquids to Add to Smoothie
   const liquidCheckBox = (e) => {
-
-    //Set limit to amount of selected ingredients
     if (checkSelected(smoothieRecipe.liquids, 2, e.target.name)) {
       setSmoothieRecipe({
         ...smoothieRecipe, liquids: { ...smoothieRecipe.liquids, [e.target.name]: !smoothieRecipe.liquids[e.target.name] }
@@ -71,22 +69,29 @@ const CreateSmoothie = () => {
 
   //Selecting Fruits to Add to Smoothie
   const fruitsCheckBox = (e) => {
-    setSmoothieRecipe({
-      ...smoothieRecipe, fruits: { ...smoothieRecipe.fruits, [e.target.name]: !smoothieRecipe.fruits[e.target.name] }
-    })
+    if (checkSelected(smoothieRecipe.fruits, 3, e.target.name)) {
+      setSmoothieRecipe({
+        ...smoothieRecipe, fruits: { ...smoothieRecipe.fruits, [e.target.name]: !smoothieRecipe.fruits[e.target.name] }
+      })
+    }
   }
+
   //Selecting Greens to Add to Smoothie
   const greensCheckBox = (e) => {
-    setSmoothieRecipe({
-      ...smoothieRecipe, greens: { ...smoothieRecipe.greens, [e.target.name]: !smoothieRecipe.greens[e.target.name] }
-    })
+    if (checkSelected(smoothieRecipe.greens, 2, e.target.name)) {
+      setSmoothieRecipe({
+        ...smoothieRecipe, greens: { ...smoothieRecipe.greens, [e.target.name]: !smoothieRecipe.greens[e.target.name] }
+      })
+    }
   }
 
   //Selecting Extra Ingredients to Add to Smoothie
   const extrasCheckBox = (e) => {
-    setSmoothieRecipe({
-      ...smoothieRecipe, extras: { ...smoothieRecipe.extras, [e.target.name]: !smoothieRecipe.extras[e.target.name] }
-    })
+    if (checkSelected(smoothieRecipe.extras, 3, e.target.name)) {
+      setSmoothieRecipe({
+        ...smoothieRecipe, extras: { ...smoothieRecipe.extras, [e.target.name]: !smoothieRecipe.extras[e.target.name] }
+      })
+    }
   }
 
   return (
