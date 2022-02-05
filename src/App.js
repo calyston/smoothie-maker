@@ -20,7 +20,6 @@ function App() {
           <img src={logo} alt="" />
           <h1>Smoothie Creator</h1>
         </header>
-
         <CreateSmoothie />
       </div>
     </div>
