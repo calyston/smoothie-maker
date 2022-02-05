@@ -1,7 +1,6 @@
 //Imports
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
 const CreateSmoothie = () => {
 
@@ -96,7 +95,7 @@ const CreateSmoothie = () => {
 
   return (
     <div className="form-wrapper">
-      <Form>
+      <form>
         <Form.Group controlId="Name">
           <Form.Label>Customer Name:</Form.Label>
           <Form.Control type="text" value={smoothieRecipe.name} onChange={inputCustomerName} />
@@ -255,10 +254,10 @@ const CreateSmoothie = () => {
           />
         </Form.Group>
 
-        <Button size="lg" block="block" type="submit">
+        <button type="submit">
           Submit
-        </Button>
-      </Form>
+        </button>
+      </form>
     </div >
   )
 }
